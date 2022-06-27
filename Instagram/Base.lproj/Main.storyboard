@@ -125,7 +125,7 @@
         <!--Home-->
         <scene sceneID="U3h-VM-IJN">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ecb-OV-8tt" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="Ecb-OV-8tt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="feed_tab" selectedImage="feed_tab" id="g1h-BF-Aax"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vfh-nl-fti">
