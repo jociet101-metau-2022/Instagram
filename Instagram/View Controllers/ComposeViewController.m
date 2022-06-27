@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *captionPlaceholderLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
 
+@property (weak, nonatomic) UIImage *finalImage;
+
 @end
 
 @implementation ComposeViewController
@@ -41,6 +43,27 @@
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
+- (UIImage *)resizeImage:(UIImage *)image withSize:(id)rawSize {
+    
+    if (rawSize == nil) {
+        return image;
+    }
+    
+    CGSize size = [rawSize CGSizeValue];
+    
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     // Get the image captured by the UIImagePickerController
@@ -49,6 +72,8 @@
 
     // Do something with the images (based on your use case)
     [self.postImage setImage:editedImage];
+    
+    self.finalImage = [self resizeImage:editedImage withSize:nil];
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -80,6 +105,9 @@
 }
 
 - (IBAction)sharePost:(id)sender {
+    
+//    self.captionField.text
+    
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
