@@ -36,6 +36,11 @@
     
 }
 
+- (IBAction)didTapCompose:(id)sender {
+    [self performSegueWithIdentifier:@"composeSegue" sender:self];
+}
+
+
 /*
 #pragma mark - Navigation
 

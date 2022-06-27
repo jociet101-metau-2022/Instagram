@@ -97,10 +97,16 @@
                                 <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="insta_camera_btn"/>
+                                <connections>
+                                    <action selector="didTapCompose:" destination="J2O-EL-wDo" eventType="touchUpInside" id="dDa-6A-4ZU"/>
+                                </connections>
                             </button>
                             <color key="tintColor" name="AccentColor"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="LPx-wO-75F" kind="presentation" identifier="composeSegue" id="fhh-bI-OHe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBU-O6-3Sp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -111,7 +117,7 @@
             <objects>
                 <viewController id="IVv-dW-Pbb" customClass="ComposeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s27-Om-6rC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="yKr-Hf-g8h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -163,7 +169,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LPx-wO-75F" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ymR-vO-u4f">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
