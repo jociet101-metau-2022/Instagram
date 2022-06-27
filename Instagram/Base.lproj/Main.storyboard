@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +61,7 @@
                     <connections>
                         <outlet property="passwordField" destination="FhZ-jr-KqN" id="MFT-nQ-VPx"/>
                         <outlet property="usernameField" destination="d5N-2q-sll" id="Y9K-vl-Tzx"/>
-                        <segue destination="wqc-Zz-Llf" kind="presentation" id="Ovn-93-hFg"/>
+                        <segue destination="wqc-Zz-Llf" kind="presentation" identifier="loginSegue" id="Ovn-93-hFg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -77,7 +78,29 @@
                         <viewLayoutGuide key="safeArea" id="dRM-zs-Woo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home Feed" id="UUJ-l6-GC4"/>
+                    <navigationItem key="navigationItem" title="Home Feed" id="UUJ-l6-GC4">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="v6D-ho-AoO">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="VbY-6J-jC6">
+                                <rect key="frame" x="20" y="11" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="J2O-EL-wDo" eventType="touchUpInside" id="lom-Is-8s7"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="X7e-rj-VZA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zoM-cg-cPt">
+                                <rect key="frame" x="302" y="8.5" width="92" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="insta_camera_btn"/>
+                            </button>
+                            <color key="tintColor" name="AccentColor"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBU-O6-3Sp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,11 +122,11 @@
             </objects>
             <point key="canvasLocation" x="6102.898550724638" y="-194.19642857142856"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="U3h-VM-IJN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ecb-OV-8tt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="g1h-BF-Aax"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="feed_tab" selectedImage="feed_tab" id="g1h-BF-Aax"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vfh-nl-fti">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -152,11 +175,11 @@
             </objects>
             <point key="canvasLocation" x="5192.753623188406" y="-194.19642857142856"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="uWT-hd-xnd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4kG-4S-Rew" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="9fv-Ba-0Hg"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" selectedImage="profile_tab" id="9fv-Ba-0Hg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cCl-4x-CT1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -192,6 +215,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="feed_tab" width="25" height="25"/>
+        <image name="insta_camera_btn" width="25" height="25"/>
+        <image name="profile_tab" width="25" height="25"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

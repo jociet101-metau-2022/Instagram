@@ -36,24 +36,29 @@
         } else {
             NSLog(@"User registered successfully");
             
-            // manually segue to logged in view
+            [self performSegueWithIdentifier:@"loginSegue" sender:self];
+        }
+    }];
+}
+
+- (void)loginUser {
+    NSString *username = self.usernameField.text;
+    NSString *password = self.passwordField.text;
+    
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+        if (error != nil) {
+            NSLog(@"User log in failed: %@", error.localizedDescription);
+        } else {
+            NSLog(@"User logged in successfully");
+            
+            [self performSegueWithIdentifier:@"loginSegue" sender:self];
+            
         }
     }];
 }
 
 - (IBAction)didTapLogin:(id)sender {
-    NSString *username = self.usernameField.text;
-        NSString *password = self.passwordField.text;
-        
-        [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
-            if (error != nil) {
-                NSLog(@"User log in failed: %@", error.localizedDescription);
-            } else {
-                NSLog(@"User logged in successfully");
-                
-                // display view controller that needs to shown after successful login
-            }
-        }];
+    [self loginUser];
 }
 
 - (IBAction)didTapSignup:(id)sender {
