@@ -6,6 +6,7 @@
 //
 
 #import "ComposeViewController.h"
+#import "Post.h"
 
 @interface ComposeViewController () <UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -107,6 +108,16 @@
 - (IBAction)sharePost:(id)sender {
     
 //    self.captionField.text
+    [Post postUserImage:self.finalImage withCaption:self.captionField.text withCompletion:^(BOOL good, NSError* error) {
+        
+        if (error) {
+            NSLog(@"Error posting: %@", error.localizedDescription);
+        }
+        else {
+            NSLog(@"Successfully posted the image");
+        }
+        
+    }];
     
     [self dismissViewControllerAnimated:true completion:nil];
 }
