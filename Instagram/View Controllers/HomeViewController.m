@@ -29,7 +29,6 @@
         
         SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
         myDelegate.window.rootViewController = loginViewController;
-
         
         NSLog(@"tried to log out");
     }];

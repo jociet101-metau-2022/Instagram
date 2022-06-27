@@ -7,10 +7,11 @@
 
 #import "ComposeViewController.h"
 
-@interface ComposeViewController () <UITextViewDelegate>
+@interface ComposeViewController () <UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *captionField;
 @property (weak, nonatomic) IBOutlet UILabel *captionPlaceholderLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *postImage;
 
 @end
 
@@ -23,10 +24,37 @@
     self.captionField.returnKeyType = UIReturnKeyDone;
 }
 
+- (void)initializeTaker {
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+
+    // The Xcode simulator does not support taking pictures, so let's first check that the camera is indeed supported on the device before trying to present it.
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else {
+        NSLog(@"Camera 🚫 available so we will use photo library instead");
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    // Get the image captured by the UIImagePickerController
+//    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+
+    // Do something with the images (based on your use case)
+    [self.postImage setImage:editedImage];
+    
+    // Dismiss UIImagePickerController to go back to your original view controller
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)textViewDidBeginEditing:(UITextView *)textView {
-    
-    NSLog(@"did begin editing");
-    
     self.captionPlaceholderLabel.alpha = 0;
 }
 
@@ -54,6 +82,12 @@
 - (IBAction)sharePost:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
+
+- (IBAction)uploadPhoto:(id)sender {
+    NSLog(@"want to upload photo");
+    [self initializeTaker];
+}
+
 
 /*
 #pragma mark - Navigation
