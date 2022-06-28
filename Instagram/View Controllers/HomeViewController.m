@@ -28,8 +28,9 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
-    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
     
     [self fetchData];
     
@@ -38,9 +39,9 @@
     [self.tableView addSubview:self.refreshControl];
 }
 
-//- (void)viewDidAppear:(BOOL)animated {
-//    [self fetchData];
-//}
+- (void)viewDidAppear:(BOOL)animated {
+    [self fetchData];
+}
 
 - (void)fetchData {
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
@@ -68,9 +69,7 @@
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
         
     cell.post = self.postArray[indexPath.row];
-    
-//    NSLog(@"%@", cell.post.author.username);
-    
+        
     return cell;
 }
 

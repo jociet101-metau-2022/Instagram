@@ -81,11 +81,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="421" id="ACa-hK-Kcy" customClass="PostCell">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="421"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="472" id="ACa-hK-Kcy" customClass="PostCell">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="472"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ACa-hK-Kcy" id="L9I-vo-OvI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="421"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="472"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5do-ej-iLd">
@@ -96,8 +96,15 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption stuff yay" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCy-M8-dfr">
-                                                    <rect key="frame" x="8" y="343" width="398" height="20.5"/>
+                                                    <rect key="frame" x="8" y="365" width="398" height="76"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXA-xj-QM9">
+                                                    <rect key="frame" x="8" y="343" width="150" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -108,8 +115,8 @@
                                                 <constraint firstAttribute="trailing" secondItem="NCy-M8-dfr" secondAttribute="trailing" constant="8" id="XBS-yl-mPi"/>
                                                 <constraint firstAttribute="trailing" secondItem="5do-ej-iLd" secondAttribute="trailing" constant="8" id="dW7-Gu-IaG"/>
                                                 <constraint firstItem="5do-ej-iLd" firstAttribute="leading" secondItem="L9I-vo-OvI" secondAttribute="leading" constant="8" id="pkL-zx-PMB"/>
-                                                <constraint firstItem="NCy-M8-dfr" firstAttribute="top" secondItem="5do-ej-iLd" secondAttribute="bottom" constant="8" symbolic="YES" id="uXf-Vi-fP8"/>
-                                                <constraint firstAttribute="bottom" secondItem="NCy-M8-dfr" secondAttribute="bottom" constant="57.5" id="ygx-Sv-7Pi"/>
+                                                <constraint firstItem="NCy-M8-dfr" firstAttribute="top" secondItem="5do-ej-iLd" secondAttribute="bottom" constant="30" id="uXf-Vi-fP8"/>
+                                                <constraint firstAttribute="bottom" secondItem="NCy-M8-dfr" secondAttribute="bottom" constant="31" id="ygx-Sv-7Pi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -117,6 +124,7 @@
                                             <outlet property="imageHeightConstr" destination="VpL-Nq-TgE" id="NAo-qV-kXm"/>
                                             <outlet property="imageWidthConstr" destination="Ogy-Sa-LAZ" id="0dD-tY-rJv"/>
                                             <outlet property="postImageView" destination="5do-ej-iLd" id="sFW-Py-dMG"/>
+                                            <outlet property="usernameLabel" destination="IXA-xj-QM9" id="t2f-hG-3lC"/>
                                             <segue destination="9cv-8i-qoE" kind="show" identifier="detailsSegue" id="HzG-rB-cZq"/>
                                         </connections>
                                     </tableViewCell>

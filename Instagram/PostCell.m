@@ -30,9 +30,12 @@
     UIImage* img = [UIImage imageWithData:[post[@"image"] getData]];
     [self.postImageView setImage:img];
     
+    PFUser *user = post.author;
+    [user fetchIfNeeded];
+    
     self.captionLabel.text = post.caption;
     
-//    self.captionLabel.text = [post.author.username stringByAppendingString:[@": " stringByAppendingString:post.caption]];
+    self.usernameLabel.text = user.username;
 }
 
 @end
