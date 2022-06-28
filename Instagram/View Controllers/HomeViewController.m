@@ -54,10 +54,6 @@
         if (posts != nil) {
             self.postArray = posts;
             
-            Post *sample = self.postArray[0];
-            NSLog(@"%@", sample.author);
-            
-            
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);

@@ -21,19 +21,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    NSLog(self.incomingData.author);
-    
-    // self.incomingData is Post
+    PFUser* user = self.incomingData.author;
+    [user fetchIfNeeded];
 
-//    self.authorLabel.text = self.incomingData.author.username;
-    
-    NSLog(@"%@", self.incomingData.createdAt);
+    self.authorLabel.text = user.username;
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    NSString *originalDate = [formatter stringFromDate:self.incomingData.createdAt];
     formatter.dateFormat = @"E MMM d HH:mm:ss yyyy";
+    NSString *originalDate = [formatter stringFromDate:self.incomingData.createdAt];
+    
     NSDate *date = [formatter dateFromString:originalDate];
-
+    formatter.dateStyle = NSDateFormatterShortStyle;
+    formatter.timeStyle = NSDateFormatterShortStyle;
+    
     self.dateLabel.text = [formatter stringFromDate:date];
 
     UIImage* img = [UIImage imageWithData:[self.incomingData.image getData]];
