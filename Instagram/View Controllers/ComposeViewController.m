@@ -107,7 +107,6 @@
 
 - (IBAction)sharePost:(id)sender {
     
-//    self.captionField.text
     [Post postUserImage:self.finalImage withCaption:self.captionField.text withCompletion:^(BOOL good, NSError* error) {
         
         if (error) {
@@ -116,7 +115,6 @@
         else {
             NSLog(@"Successfully posted the image");
         }
-        
     }];
     
     [self dismissViewControllerAnimated:true completion:nil];
