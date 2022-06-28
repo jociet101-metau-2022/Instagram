@@ -25,7 +25,7 @@
     
     // self.incomingData is Post
 
-    self.authorLabel.text = self.incomingData.author.username;
+//    self.authorLabel.text = self.incomingData.author.username;
     
     NSLog(@"%@", self.incomingData.createdAt);
 

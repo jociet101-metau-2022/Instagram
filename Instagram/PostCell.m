@@ -29,19 +29,10 @@
     
     UIImage* img = [UIImage imageWithData:[post[@"image"] getData]];
     [self.postImageView setImage:img];
+    
     self.captionLabel.text = post.caption;
+    
 //    self.captionLabel.text = [post.author.username stringByAppendingString:[@": " stringByAppendingString:post.caption]];
-    
-//    int width = img.size.width;
-//    int height = img.size.height;
-    
-//    self.imageWidthConstr.constant = width;
-//    self.imageHeightConstr.constant = height;
-    
-//    self.postImageView.frame.size.width = width;
-//    self.postImageView.frame.size.height = height;
-    
-//    NSLog(@"%@", self.captionLabel.text);
 }
 
 @end

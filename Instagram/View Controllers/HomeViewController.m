@@ -53,6 +53,11 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.postArray = posts;
+            
+            Post *sample = self.postArray[0];
+            NSLog(@"%@", sample.author);
+            
+            
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -68,7 +73,7 @@
         
     cell.post = self.postArray[indexPath.row];
     
-    NSLog(@"%@", cell.post);
+//    NSLog(@"%@", cell.post.author.username);
     
     return cell;
 }
