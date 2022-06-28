@@ -60,8 +60,6 @@
             UITabBarController *homeVC = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
             self.view.window.rootViewController = homeVC;
             
-//            [self performSegueWithIdentifier:@"loginSegue" sender:self];
-            
         }
     }];
 }

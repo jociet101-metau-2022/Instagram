@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "SceneDelegate.h"
 #import "PostCell.h"
+#import "DetailsViewController.h"
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -64,10 +65,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
-    
-//    NSLog(@"%@", [self.postArray[indexPath.row] class]);
-    
+        
     cell.post = self.postArray[indexPath.row];
+    
+    NSLog(@"%@", cell.post);
     
     return cell;
 }
@@ -100,14 +101,24 @@
     [self fetchData];
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    NSString* senderType = [NSString stringWithFormat:@"%@", [sender class]];
+    
+    if ([senderType isEqualToString:@"PostCell"]) {
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        
+        Post* data = self.postArray[indexPath.row];
+        DetailsViewController *VC = [segue destinationViewController];
+        VC.incomingData = data;
+    }
+    
 }
-*/
 
 @end
