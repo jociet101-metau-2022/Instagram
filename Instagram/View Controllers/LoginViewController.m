@@ -6,6 +6,7 @@
 //
 
 #import "LoginViewController.h"
+#import "HomeViewController.h"
 
 @interface LoginViewController ()
 
@@ -36,7 +37,11 @@
         } else {
             NSLog(@"User registered successfully");
             
-            [self performSegueWithIdentifier:@"loginSegue" sender:self];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UITabBarController *homeVC = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+            self.view.window.rootViewController = homeVC;
+            
+//            [self performSegueWithIdentifier:@"loginSegue" sender:self];
         }
     }];
 }
@@ -51,7 +56,11 @@
         } else {
             NSLog(@"User logged in successfully");
             
-            [self performSegueWithIdentifier:@"loginSegue" sender:self];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UITabBarController *homeVC = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+            self.view.window.rootViewController = homeVC;
+            
+//            [self performSegueWithIdentifier:@"loginSegue" sender:self];
             
         }
     }];

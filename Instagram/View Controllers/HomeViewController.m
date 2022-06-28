@@ -27,6 +27,8 @@
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
+    
     [self fetchData];
 }
 
@@ -37,6 +39,9 @@
 - (void)fetchData {
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     query.limit = 20;
+    
+//    [query whereKey:@"author" equalTo:PFUser.currentUser];
+    [query orderByDescending:@"createdAt"];
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -77,8 +82,6 @@
         
         SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
         myDelegate.window.rootViewController = loginViewController;
-        
-        NSLog(@"tried to log out");
     }];
     
 }
@@ -87,6 +90,9 @@
     [self performSegueWithIdentifier:@"composeSegue" sender:self];
 }
 
+- (void)onTimer {
+    [self fetchData];
+}
 
 /*
 #pragma mark - Navigation
