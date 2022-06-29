@@ -47,24 +47,33 @@ Please list two areas of the assignment you'd like to **discuss further with you
 Here's a walkthrough of implemented user stories:
 
 
+Log in and Sign up features
+
 
 https://user-images.githubusercontent.com/73032138/176546703-7b33cc2c-3394-44b9-8f70-afd93636c1f7.mov
 
 
+Feed and profile
 
 https://user-images.githubusercontent.com/73032138/176546747-d51ce847-5079-48a0-8bfa-1bf2f67522cc.mov
 
 
+Compose view
 
 https://user-images.githubusercontent.com/73032138/176546754-2b0e6cd8-30ad-46fe-9436-2f4eec6f2022.mov
 
 
+Details and profile view
 
 https://user-images.githubusercontent.com/73032138/176546775-76ebda90-90bc-4d63-bb1e-ac7fd3edd60c.mov
 
 
 
-Uploading real camera.MP4…
+Using a real camera to compose
+
+https://user-images.githubusercontent.com/73032138/176546986-beaa8086-880b-4aa6-b800-574627d4febb.MP4
+
+
 
 
 ## Credits
