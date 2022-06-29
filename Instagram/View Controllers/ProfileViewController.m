@@ -35,6 +35,9 @@
     
     self.usernameLabel.text = user.username;
     
+    UIImage* img = [UIImage imageWithData:[user[@"profilePicture"] getData]];
+    [self.profileImage setImage:img];
+    
     [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
     
     [self fetchData];
@@ -113,6 +116,19 @@
     // Do something with the images (based on your use case)
     [self.profileImage setImage:editedImage];
     
+    // save profile image
+    NSData* data = UIImagePNGRepresentation(editedImage);
+    PFFileObject *file = [PFFileObject fileObjectWithData:data];
+    
+    PFUser *currentUser = [PFUser currentUser];
+    currentUser[@"profilePicture"] = file;
+    [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Profile picture saved!");
+        } else {
+            NSLog(@"Error: %@", error.description);
+        }
+    }];
     self.finalImage = editedImage;
     
 //    self.finalImage = [self resizeImage:editedImage withSize:nil];
