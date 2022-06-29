@@ -33,8 +33,17 @@
     PFUser *user = post.author;
     [user fetchIfNeeded];
     
-    self.captionLabel.text = post.caption;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"E MMM d HH:mm:ss yyyy";
+    NSString *originalDate = [formatter stringFromDate:post.createdAt];
     
+    NSDate *date = [formatter dateFromString:originalDate];
+    formatter.dateStyle = NSDateFormatterShortStyle;
+    formatter.timeStyle = NSDateFormatterNoStyle;
+    
+    NSString *dateString = [@"\n" stringByAppendingString:[formatter stringFromDate:date]];
+    
+    self.captionLabel.text = [post.caption stringByAppendingString:[dateString stringByAppendingString:@"\n"]];
     self.usernameLabel.text = user.username;
 }
 
