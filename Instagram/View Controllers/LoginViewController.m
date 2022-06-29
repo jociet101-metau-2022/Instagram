@@ -22,6 +22,9 @@
     // Do any additional setup after loading the view.
     
     self.passwordField.secureTextEntry = true;
+    
+    self.usernameField.layer.cornerRadius = 16;
+    self.passwordField.layer.cornerRadius = 16;
 }
 
 - (void)registerUser {

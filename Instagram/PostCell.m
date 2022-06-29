@@ -27,6 +27,8 @@
     UIImage* img = [UIImage imageWithData:[post[@"image"] getData]];
     [self.postImageView setImage:img];
     
+    self.profileImageView.layer.cornerRadius = 20;
+    
     PFUser *user = post.author;
     [user fetchIfNeeded];
     
@@ -41,10 +43,8 @@
     formatter.dateStyle = NSDateFormatterShortStyle;
     formatter.timeStyle = NSDateFormatterShortStyle;
     
-    NSString *dateString = [@"\n" stringByAppendingString:[formatter stringFromDate:date]];
-    
     self.captionLabel.text = post.caption;
-    self.dateLabel.text = dateString;
+    self.dateLabel.text = [formatter stringFromDate:date];
     self.usernameLabel.text = user.username;
     self.usernameLabel2.text = user.username;
 }
