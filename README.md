@@ -2,7 +2,7 @@
 
 **Instagram** is a photo sharing app using Parse as its backend.
 
-Time spent: **X** hours spent in total
+Time spent: **18** hours spent in total
 
 ## User Stories
 
@@ -29,26 +29,24 @@ The following **optional** features are implemented:
 - [ ] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse
 - [ ] User can comment on a post and see all comments for each post in the post details screen
 - [ ] User can like a post and see number of likes for each post in the post details screen
-- [ ] Style the login page to look like the real Instagram login page
+- [x] Style the login page to look like the real Instagram login page
 - [ ] Style the feed to look like the real Instagram feed
 - [ ] Implement a custom camera view
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Style the loading page to look like the real Instagram loading page
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. How to add friends and only see their posts, as well as creating private posts only visible to self.
+2. How to more efficiently perform auto layout when there are many features on the screen.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [Kap](https://getkap.co/).
 
 ## Credits
 
