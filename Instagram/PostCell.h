@@ -17,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel2;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *profileImageButton;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageWidthConstr;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageHeightConstr;

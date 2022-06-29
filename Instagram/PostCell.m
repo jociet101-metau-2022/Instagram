@@ -20,7 +20,6 @@
     // Configure the view for the selected state
 }
 
-
 - (void)setPost:(Post *)post {
     
     _post = post;
@@ -30,6 +29,9 @@
     
     PFUser *user = post.author;
     [user fetchIfNeeded];
+    
+    UIImage* img2 = [UIImage imageWithData:[user[@"profilePicture"] getData]];
+    [self.profileImageView setImage:img2];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"E MMM d HH:mm:ss yyyy";
@@ -41,8 +43,14 @@
     
     NSString *dateString = [@"\n" stringByAppendingString:[formatter stringFromDate:date]];
     
-    self.captionLabel.text = [post.caption stringByAppendingString:[dateString stringByAppendingString:@"\n"]];
+    self.captionLabel.text = post.caption;
+    self.dateLabel.text = dateString;
     self.usernameLabel.text = user.username;
+    self.usernameLabel2.text = user.username;
+}
+
+- (IBAction)didTapPfp:(id)sender {
+    NSLog(@"aslkdjflaksdjfasdf");
 }
 
 @end

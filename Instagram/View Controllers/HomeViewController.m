@@ -11,6 +11,7 @@
 #import "SceneDelegate.h"
 #import "PostCell.h"
 #import "DetailsViewController.h"
+#import "GeneralProfileViewController.h"
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -110,6 +111,8 @@
     
     NSString* senderType = [NSString stringWithFormat:@"%@", [sender class]];
     
+    NSLog(@"\n\n\n\nsender = %@\n\n\n\n.", [sender class]);
+    
     if ([senderType isEqualToString:@"PostCell"]) {
         
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
@@ -117,6 +120,14 @@
         Post* data = self.postArray[indexPath.row];
         DetailsViewController *VC = [segue destinationViewController];
         VC.incomingData = data;
+    }
+    else if ([senderType isEqualToString:@"UIButton"]){
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        
+        Post* data = self.postArray[indexPath.row];
+        GeneralProfileViewController *VC = [segue destinationViewController];
+        VC.user = data.author;
     }
     
 }

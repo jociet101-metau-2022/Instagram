@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @property (weak, nonatomic) UIImage *finalImage;
+@property (strong, nonatomic) PFUser *user;
 
 @end
 
@@ -30,12 +31,12 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
-    PFUser* user = [PFUser currentUser];
-    [user fetchIfNeeded];
+    self.user = [PFUser currentUser];
+    [self.user fetchIfNeeded];
     
-    self.usernameLabel.text = user.username;
+    self.usernameLabel.text = self.user.username;
     
-    UIImage* img = [UIImage imageWithData:[user[@"profilePicture"] getData]];
+    UIImage* img = [UIImage imageWithData:[self.user[@"profilePicture"] getData]];
     [self.profileImage setImage:img];
     
     [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
@@ -51,7 +52,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     query.limit = 20;
     
-    [query whereKey:@"author" equalTo:PFUser.currentUser];
+    [query whereKey:@"author" equalTo:self.user];
     [query orderByDescending:@"createdAt"];
 
     // fetch data asynchronously
