@@ -48,6 +48,26 @@ Here's a walkthrough of implemented user stories:
 
 
 
+https://user-images.githubusercontent.com/73032138/176546703-7b33cc2c-3394-44b9-8f70-afd93636c1f7.mov
+
+
+
+https://user-images.githubusercontent.com/73032138/176546747-d51ce847-5079-48a0-8bfa-1bf2f67522cc.mov
+
+
+
+https://user-images.githubusercontent.com/73032138/176546754-2b0e6cd8-30ad-46fe-9436-2f4eec6f2022.mov
+
+
+
+https://user-images.githubusercontent.com/73032138/176546761-1a74e6f1-3425-44e2-8594-6f28613d6a31.mov
+
+
+
+https://user-images.githubusercontent.com/73032138/176546775-76ebda90-90bc-4d63-bb1e-ac7fd3edd60c.mov
+
+
+
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
