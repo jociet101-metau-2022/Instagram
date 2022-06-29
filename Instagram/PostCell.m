@@ -23,8 +23,6 @@
 
 - (void)setPost:(Post *)post {
     
-//    NSLog(@"set post");
-    
     _post = post;
     
     UIImage* img = [UIImage imageWithData:[post[@"image"] getData]];
@@ -39,7 +37,7 @@
     
     NSDate *date = [formatter dateFromString:originalDate];
     formatter.dateStyle = NSDateFormatterShortStyle;
-    formatter.timeStyle = NSDateFormatterNoStyle;
+    formatter.timeStyle = NSDateFormatterShortStyle;
     
     NSString *dateString = [@"\n" stringByAppendingString:[formatter stringFromDate:date]];
     
