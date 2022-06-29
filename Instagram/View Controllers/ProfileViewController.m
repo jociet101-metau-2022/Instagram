@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray* postArray;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UILabel *profileImagePlaceholder;
 
 @property (weak, nonatomic) UIImage *finalImage;
 @property (strong, nonatomic) PFUser *user;
@@ -38,6 +39,10 @@
     
     UIImage* img = [UIImage imageWithData:[self.user[@"profilePicture"] getData]];
     [self.profileImage setImage:img];
+    
+    if (img != nil) {
+        self.profileImagePlaceholder.alpha = 0;
+    }
     
     [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
     
